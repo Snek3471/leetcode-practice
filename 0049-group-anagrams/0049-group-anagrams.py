@@ -1,6 +1,6 @@
 class Solution(object):
     def groupAnagrams(self, strs):
-        myhash = {}
+        myhash = defaultdict(list)
 
         for s in strs:
             count = [0] * 26
@@ -8,10 +8,7 @@ class Solution(object):
             for c in s: 
                 count[ord(c) - ord("a")] += 1
 
-            if tuple(count) in myhash:
-                myhash[tuple(count)].append(s)
-            else:
-                myhash[tuple(count)] = [s]
+            myhash[tuple(count)].append(s)
 
         return list(myhash.values())
         

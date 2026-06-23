@@ -6,12 +6,10 @@ class Solution(object):
         while i < j:
             maxInLoop = 0
             if (height[i] <= height[j]):
-                maxInLoop = height[i] * (j - i)
+                maxArea = max(maxArea, height[i] * (j - i)) 
                 i += 1
             elif (height[j] < height[i]):
-                maxInLoop = height[j] * (j - i)
+                maxArea = max(maxArea, height[j] * (j - i))
                 j -= 1
-            maxArea = max(maxArea, maxInLoop)
-
         return maxArea
         
